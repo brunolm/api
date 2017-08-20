@@ -22,6 +22,10 @@ $env:NODE_ENV='production';
 - node-ts: http://localhost:3020/
 - node-typescript: http://localhost:3021/
 
+### Go
+
+- go: http://localhost:6000/
+
 ### Python
 
 - flask: http://localhost:4000/
