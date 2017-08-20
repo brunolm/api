@@ -68,7 +68,7 @@ Requests/sec:   1206.20
 Transfer/sec:     47.73MB
 ```
 
-## Node Babel
+## Node (babel)
 
 ```
 $ ./test.sh 3010
@@ -102,7 +102,7 @@ Requests/sec:   1185.07
 Transfer/sec:     46.89MB
 ```
 
-## Node babel-node
+## Node (babel-node)
 
 ```
 $ ./test.sh 3011
@@ -136,7 +136,7 @@ Requests/sec:   1166.20
 Transfer/sec:     46.14MB
 ```
 
-## Node Babel Register
+## Node (babel-core/register)
 
 ```
 $ ./test.sh 3012
