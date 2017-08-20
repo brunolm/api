@@ -8,7 +8,9 @@
 
 ## Performance results
 
-Tests using `wrk` with the [same configuration run at aspnet/benchmarks](https://github.com/aspnet/benchmarks/blob/dev/README.md)
+Tests using `wrk` with the [same configuration run at aspnet/benchmarks](https://github.com/aspnet/benchmarks/blob/dev/README.md).
+
+Server: localhost
 
 | # | Stack | Route |  Req/sec | Load Params | Observations |
 | - | ----- | ------ | -------- | ----------- | ------------ |
