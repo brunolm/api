@@ -1,6 +1,13 @@
 # API
 
+## Urls
+
+### .NET Core
+
 - netcore (.NET Core 2.0): http://localhost:5000/
+
+### Node
+
 - node: http://localhost:3000/
 - node-babel: http://localhost:3010/
 - node-babel-node: http://localhost:3011/
