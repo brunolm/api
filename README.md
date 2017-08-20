@@ -2,15 +2,17 @@
 
 - netcore (.NET Core 2.0): http://localhost:5000/
 - node: http://localhost:3000/
-- node-babel: http://localhost:3001/
-- node-ts: http://localhost:3002/
-- node-typescript: http://localhost:3003/
+- node-babel: http://localhost:3010/
+- node-babel-node: http://localhost:3011/
+- node-babel-register: http://localhost:3012/
+- node-ts: http://localhost:3020/
+- node-typescript: http://localhost:3021/
 
 ## Performance results
 
 Tests using `wrk` with the [same configuration run at aspnet/benchmarks](https://github.com/aspnet/benchmarks/blob/dev/README.md).
 
-Server: localhost
+Route: `/todo`, Server: `localhost`
 
 | # | Stack | Route |  Req/sec | Load Params | Observations |
 | - | ----- | ------ | -------- | ----------- | ------------ |
@@ -91,8 +93,8 @@ Transfer/sec:     47.73MB
 ### Node Babel
 
 ```
-$ ./test.sh 3001
-Running 10s test @ http://localhost:3001/todo
+$ ./test.sh 3010
+Running 10s test @ http://localhost:3010/todo
   32 threads and 256 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency   242.85ms   67.58ms   1.10s    90.25%
@@ -101,8 +103,8 @@ Running 10s test @ http://localhost:3001/todo
 Requests/sec:   1047.44
 Transfer/sec:     41.44MB
 
-$ ./test.sh 3001
-Running 10s test @ http://localhost:3001/todo
+$ ./test.sh 3010
+Running 10s test @ http://localhost:3010/todo
   32 threads and 256 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency   214.90ms   55.55ms   1.01s    93.44%
@@ -111,8 +113,8 @@ Running 10s test @ http://localhost:3001/todo
 Requests/sec:   1192.33
 Transfer/sec:     47.18MB
 
-$ ./test.sh 3001
-Running 10s test @ http://localhost:3001/todo
+$ ./test.sh 3010
+Running 10s test @ http://localhost:3010/todo
   32 threads and 256 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency   214.15ms   55.00ms 906.73ms   93.76%
@@ -122,11 +124,79 @@ Requests/sec:   1185.07
 Transfer/sec:     46.89MB
 ```
 
+### Node babel-node
+
+```
+$ ./test.sh 3011
+Running 10s test @ http://localhost:3011/todo
+  32 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   247.70ms   66.93ms   1.09s    91.17%
+    Req/Sec    34.30     19.65   158.00     63.55%
+  10322 requests in 10.10s, 408.41MB read
+Requests/sec:   1021.87
+Transfer/sec:     40.43MB
+
+$ ./test.sh 3011
+Running 10s test @ http://localhost:3011/todo
+  32 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   220.34ms   62.64ms   1.08s    92.98%
+    Req/Sec    38.08     20.89   160.00     57.77%
+  11680 requests in 10.04s, 462.14MB read
+Requests/sec:   1163.07
+Transfer/sec:     46.02MB
+
+$ ./test.sh 3011
+Running 10s test @ http://localhost:3011/todo
+  32 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   219.72ms   62.69ms   1.12s    93.35%
+    Req/Sec    38.09     18.95   180.00     63.12%
+  11720 requests in 10.05s, 463.73MB read
+Requests/sec:   1166.20
+Transfer/sec:     46.14MB
+```
+
+### Node Babel Register
+
+```
+$ ./test.sh 3012
+Running 10s test @ http://localhost:3012/todo
+  32 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   240.17ms   64.58ms   1.11s    93.14%
+    Req/Sec    35.08     19.25   151.00     63.88%
+  10640 requests in 10.04s, 420.99MB read
+Requests/sec:   1059.77
+Transfer/sec:     41.93MB
+
+$ ./test.sh 3012
+Running 10s test @ http://localhost:3012/todo
+  32 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   219.54ms   67.73ms   1.14s    94.42%
+    Req/Sec    38.15     20.75   160.00     57.06%
+  11764 requests in 10.10s, 465.47MB read
+Requests/sec:   1165.23
+Transfer/sec:     46.10MB
+
+$ ./test.sh 3012
+Running 10s test @ http://localhost:3012/todo
+  32 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   218.25ms   57.87ms 858.57ms   92.69%
+    Req/Sec    38.24     18.12   160.00     59.18%
+  11755 requests in 10.10s, 465.11MB read
+Requests/sec:   1163.79
+Transfer/sec:     46.05MB
+```
+
 ### Node (ts-node)
 
 ```
-$ ./test.sh 3002
-Running 10s test @ http://localhost:3002/todo
+$ ./test.sh 3020
+Running 10s test @ http://localhost:3020/todo
   32 threads and 256 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency   232.43ms   68.44ms   1.14s    93.74%
@@ -135,8 +205,8 @@ Running 10s test @ http://localhost:3002/todo
 Requests/sec:   1099.44
 Transfer/sec:     43.50MB
 
-$ ./test.sh 3002
-Running 10s test @ http://localhost:3002/todo
+$ ./test.sh 3020
+Running 10s test @ http://localhost:3020/todo
   32 threads and 256 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency   234.38ms   70.61ms 989.26ms   86.83%
@@ -145,8 +215,8 @@ Running 10s test @ http://localhost:3002/todo
 Requests/sec:   1090.32
 Transfer/sec:     43.14MB
 
-$ ./test.sh 3002
-Running 10s test @ http://localhost:3002/todo
+$ ./test.sh 3020
+Running 10s test @ http://localhost:3020/todo
   32 threads and 256 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency   219.53ms   56.06ms 857.67ms   88.71%
@@ -159,8 +229,8 @@ Transfer/sec:     45.75MB
 ### Node (TypeScript)
 
 ```
-$ ./test.sh 3003
-Running 10s test @ http://localhost:3003/todo
+$ ./test.sh 3021
+Running 10s test @ http://localhost:3021/todo
   32 threads and 256 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency   232.06ms   59.00ms 970.43ms   94.33%
@@ -169,8 +239,8 @@ Running 10s test @ http://localhost:3003/todo
 Requests/sec:   1092.82
 Transfer/sec:     43.24MB
 
-$ ./test.sh 3003
-Running 10s test @ http://localhost:3003/todo
+$ ./test.sh 3021
+Running 10s test @ http://localhost:3021/todo
   32 threads and 256 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency   213.38ms   56.63ms 906.10ms   93.77%
@@ -179,8 +249,8 @@ Running 10s test @ http://localhost:3003/todo
 Requests/sec:   1195.10
 Transfer/sec:     47.29MB
 
-$ ./test.sh 3003
-Running 10s test @ http://localhost:3003/todo
+$ ./test.sh 3021
+Running 10s test @ http://localhost:3021/todo
   32 threads and 256 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
     Latency   211.70ms   51.81ms 994.86ms   92.92%
