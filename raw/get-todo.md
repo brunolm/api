@@ -237,3 +237,40 @@ Running 10s test @ http://localhost:3021/todo
 Requests/sec:   1204.12
 Transfer/sec:     47.64MB
 ```
+
+## Python (Flask)
+
+```
+$ ./test.sh 4000
+Running 10s test @ http://localhost:4000/todo
+  32 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   868.13ms  178.10ms   1.07s    90.78%
+    Req/Sec     6.72      6.63    77.00     89.33%
+  1464 requests in 10.10s, 94.85MB read
+  Socket errors: connect 0, read 31318, write 0, timeout 0
+Requests/sec:    144.91
+Transfer/sec:      9.39MB
+
+$ ./test.sh 4000
+Running 10s test @ http://localhost:4000/todo
+  32 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   954.43ms   57.88ms   1.12s    70.08%
+    Req/Sec     5.95      4.69    31.00     79.21%
+  1310 requests in 10.12s, 84.87MB read
+  Socket errors: connect 0, read 25971, write 0, timeout 0
+Requests/sec:    129.41
+Transfer/sec:      8.38MB
+
+$ ./test.sh 4000
+Running 10s test @ http://localhost:4000/todo
+  32 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   959.36ms   62.12ms   1.16s    70.97%
+    Req/Sec     5.85      5.06    50.00     88.89%
+  1264 requests in 10.10s, 81.89MB read
+  Socket errors: connect 0, read 26196, write 0, timeout 0
+Requests/sec:    125.19
+Transfer/sec:      8.11MB
+```

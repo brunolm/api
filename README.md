@@ -22,6 +22,10 @@ $env:NODE_ENV='production';
 - node-ts: http://localhost:3020/
 - node-typescript: http://localhost:3021/
 
+### Python
+
+- flask: http://localhost:4000/
+
 ## Performance results
 
 Tests using `wrk` with the [same configuration run at aspnet/benchmarks](https://github.com/aspnet/benchmarks/blob/dev/README.md).
@@ -34,6 +38,7 @@ The results bellow are from tests I ran in my machine. I ran `wrk -c 256 -t 32 -
 | - | ----- | ------ | -------- | ----------- | ------------ |
 | 1 | .NET Core 2.0 | /todo | 2445.54 | 32 threads, 256 connections | - |
 | 2 | Node 8.4.0 | /todo | 1206.20 | 32 threads, 256 connections | No significant difference between transpilers |
+| 3 | Python 3 | /todo | 144.91 | 32 threads, 256 connections | Flask (gunicorn, socket errors) |
 
 ### Route: `/todo/:id`
 
@@ -41,3 +46,4 @@ The results bellow are from tests I ran in my machine. I ran `wrk -c 256 -t 32 -
 | - | ----- | ------ | -------- | ----------- | ------------ |
 | 1 | .NET Core 2.0 | /todo/998 | 14685.99 | 32 threads, 256 connections | - |
 | 2 | Node 8.4.0 | /todo/998 | 6613.77 | 32 threads, 256 connections | No significant difference between transpilers |
+| 3 | Python 3 | /todo/998 | 837.87 | 32 threads, 256 connections | Flask (gunicorn, socket errors) |
