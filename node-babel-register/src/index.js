@@ -1,9 +1,27 @@
 const express = require('express');
 
-const app = express();
+const cluster = require('cluster');
+const http = require('http');
+const numCPUs = require('os').cpus().length;
 
-app.use(require('./todo'));
+if (cluster.isMaster) {
+  console.log(`Master ${process.pid} is running`);
 
-app.listen(3012, '0.0.0.0', () => {
-  console.log('Listening on http://localhost:3012');
-});
+  // Fork workers.
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`);
+  });
+}
+else {
+  const app = express();
+
+  app.use(require('./todo'));
+
+  app.listen(3012, '0.0.0.0', () => {
+    console.log('Listening on http://localhost:3012');
+  });
+}
