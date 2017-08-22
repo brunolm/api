@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using netcore.Fixtures;
 
@@ -10,15 +11,15 @@ namespace netcore.Controllers
     public class TodoController : Controller
     {
         [HttpGet]
-        public IEnumerable<Todo> Get()
+        public async Task<IEnumerable<Todo>> Get()
         {
-            return TodoFixture.Todos;
+            return await Task.FromResult(TodoFixture.Todos);
         }
 
         [HttpGet("{id}")]
-        public Todo Get(int id)
+        public async Task<Todo> Get(int id)
         {
-            return TodoFixture.Todos.First(todo => todo.id == id);
+            return await Task.FromResult(TodoFixture.Todos.First(todo => todo.id == id));
         }
     }
 }

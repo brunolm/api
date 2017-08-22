@@ -1,2 +1,3 @@
 $env:ASPNETCORE_ENVIRONMENT="Production"
-dotnet run
+dotnet build -c Release
+dotnet run -c Release
